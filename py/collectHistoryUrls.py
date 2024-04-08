@@ -6,6 +6,8 @@ async def get_feature_links(url, browser):
     page = await browser.newPage()
     # 访问网页
     await page.goto(url)
+    await page.waitForSelector('tr', timeout=120000)  # 等待2分钟
+
     # 收集所有文件夹链接
     folder_links = await page.evaluate('''() => {
         const links = [];
@@ -58,7 +60,6 @@ async def main(url):
     print('over over!!!')
 
 # 调用main函数
-print('请先手动登录，注意附带路径登录   /_layouts/15/storman.aspx?root=Documents')
 start_url =input('输入sharepoint地址:')
-start_url = start_url
+start_url = start_url+'/_layouts/15/storman.aspx?root=Documents'
 asyncio.get_event_loop().run_until_complete(main(start_url))
