@@ -5,9 +5,6 @@
 ### 环境准备：
 - chromium带user data;
 - chrome以及对应版本的chromedriver;
-### 文件说明：
-collectHistoryUrls.py   收集所有历史文件链接
-delHistoryByeach.py    清除多余历史版本
 
 ### 推荐的操作步骤：
 _powershell登录到Onedrive（全局管理员），开启禁用文件历史版本的选项，之后在web端设为此选项。之后使用本工具进行处理（仅保留最新的一版）.文件多可能需要一段时间来运行_
