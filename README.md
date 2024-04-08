@@ -20,6 +20,7 @@ _powershell登录到Onedrive（全局管理员），开启禁用文件历史版�
   `Set-SPOTenant -EnableMinimumVersionRequirement $False`
 
 2. web端设置
+
 ![Snipaste1.png](Snipaste%2FSnipaste1.png)
 
 ![Snipaste2.png](Snipaste%2FSnipaste2.png)
