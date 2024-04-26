@@ -30,11 +30,11 @@ _powershell登录到Onedrive（全局管理员），开启禁用文件历史版�
 - 执行delHistory/&byeach删除（复制更多userdata以使用更多线程）
 
 
-
+4. 最后去Onedrive删除回收站和第二回收站
 
 
 
 
 ### 其他
-<small>如果你只想清除指定的文件夹历史，推荐使用此脚本来收集，之后执行清除。</small>→
-[单文件版](https://greasyfork.org/zh-CN/scripts/491887-onedrive%E5%8E%BB%E6%96%87%E4%BB%B6%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC-%E5%8D%95%E6%96%87%E4%BB%B6%E5%A4%B9%E7%89%88)
+<small>没有其他</small>
+
