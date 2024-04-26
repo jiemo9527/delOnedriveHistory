@@ -57,8 +57,6 @@ async def main(file_path, user_data_dirs):
     # 等待所有任务完成
     await asyncio.gather(*tasks)
 
-    # 打印处理的链接数量
-    print(f'已处理链接数量：{counter.value}/{total_links}')
 
     # 关闭所有浏览器实例
     for browser in browsers:
