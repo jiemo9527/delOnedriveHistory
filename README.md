@@ -25,6 +25,10 @@ _powershell登录到Onedrive（全局管理员），开启禁用文件历史版�
 3. 工具处理：收集&清除历史版本
 
 <small>你可以直接使用Python环境来运行脚本，或者使用打包的exe程序</small>
+- 首先在chroium手动登录一次
+- 执行collectHistoryUrls 采集url
+- 执行delHistory/&byeach删除（复制更多userdata以使用更多线程）
+
 
 
 
