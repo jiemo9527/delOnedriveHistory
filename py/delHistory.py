@@ -37,6 +37,7 @@ async def main(file_path, user_data_dirs):
         options = webdriver.ChromeOptions()
         options.add_argument("--start-maximized")
         options.add_argument(f"--user-data-dir={user_data_dir}")
+        options.binary_location = r'C:\Program Files\Google\Chrome\Application\chrome.exe'  # 修改为你的Chrome路径
         browser = webdriver.Chrome(options=options)
         browsers.append(browser)
 
@@ -67,9 +68,9 @@ async def main(file_path, user_data_dirs):
 file_path = 'links.txt'
 # 每个浏览器实例的用户数据目录
 user_data_dirs = [
-    r'C:\Users\Administrator\AppData\Local\Chromium\User Data',
-    r'C:\Users\Administrator\AppData\Local\Chromium\User Data2',
-    r'C:\Users\Administrator\AppData\Local\Chromium\User Data3',
+    r'C:\Users\Administrator\AppData\Local\Google\Chrome\User Data',
+    r'C:\Users\Administrator\AppData\Local\Google\Chrome\User Data1',
+    r'C:\Users\Administrator\AppData\Local\Google\Chrome\User Data2',
     # 添加更多目录...
 ]
 

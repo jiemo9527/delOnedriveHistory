@@ -35,7 +35,7 @@ async def open_link_and_trigger_delete(url, driver):
 async def main(file_path):
     # 启动Chrome浏览器
     options = webdriver.ChromeOptions()
-    options.add_argument(r"user-data-dir=C:\Users\Administrator\AppData\Local\Chromium\User Data")
+    options.add_argument(r"user-data-dir=C:\Users\Administrator\AppData\Local\Google\Chrome\User Data")
     options.add_argument("--start-maximized")
     driver = webdriver.Chrome(options=options)
 
