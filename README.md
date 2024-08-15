@@ -19,7 +19,10 @@ _powershell登录到Onedrive（全局管理员），开启禁用文件历史版�
 
 ![Snipaste1.png](Snipaste%2FSnipaste1.png)
 
-![Snipaste2.png](Snipaste%2FSnipaste2.png)
+![Snipaste2.png](Snipaste%2FSnipaste2.png)           
+
+
+####### 新增：sharepoint命令开启选项后，访问站点-左侧栏文档-左下角返回经典*n次-库-库设置
 
 3. 工具处理：收集&清除历史版本
 
