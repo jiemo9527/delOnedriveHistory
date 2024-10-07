@@ -70,7 +70,6 @@ file_path = 'links.txt'
 user_data_dirs = [
     r'C:\Users\Administrator\AppData\Local\Google\Chrome\User Data',
     r'C:\Users\Administrator\AppData\Local\Google\Chrome\User Data1',
-    r'C:\Users\Administrator\AppData\Local\Google\Chrome\User Data2',
     # 添加更多目录...
 ]
 
