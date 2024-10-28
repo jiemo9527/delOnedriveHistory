@@ -1,14 +1,11 @@
 import asyncio
-from pyppeteer import launch
+from playwright.async_api import async_playwright
 
-async def get_feature_links(url, browser):
-    # 打开新页面
-    page = await browser.newPage()
-    # 访问网页
+async def  get_feature_links(url, browser):
+    page = await browser.new_page()
     await page.goto(url)
-    await page.waitForSelector('tr', timeout=120000)  # 等待2分钟
+    await page.wait_for_selector('tr', timeout=120000)  # 等待2分钟
 
-    # 收集所有文件夹链接
     folder_links = await page.evaluate('''() => {
         const links = [];
         const rows = document.querySelectorAll('tr');
@@ -20,7 +17,7 @@ async def get_feature_links(url, browser):
         });
         return links;
     }''')
-    # 收集特征链接
+
     feature_links = await page.evaluate('''() => {
         const links = [];
         const featureLinks = document.querySelectorAll('a');
@@ -31,37 +28,36 @@ async def get_feature_links(url, browser):
         });
         return links;
     }''')
-    # 检查是否存在内容为“下一个”的a标签，并在收集完当前页特征链接后判断
+
     next_page_link = await page.evaluate('''() => {
         const nextPageLink = Array.from(document.querySelectorAll('a')).find(el => el.innerText.includes('下一个'));
         return nextPageLink ? nextPageLink.href : null;
     }''')
-    # 如果存在“下一个”链接，则递归调用函数处理下一页
+
     if next_page_link:
         feature_links += await get_feature_links(next_page_link, browser)
-    # 关闭当前页面
+
     await page.close()
-    # 对每个文件夹链接递归调用当前函数
+
     for link in folder_links:
         feature_links += await get_feature_links(link, browser)
+    print(len(feature_links))
     return feature_links
 
 async def main(url):
-    # 启动浏览器，指定Chrome的可执行文件路径
-    browser = await launch(headless=False,
-                           executablePath=r'C:\Program Files\Google\Chrome\Application\chrome.exe',  # 修改为你的Chrome路径
-                           userDataDir=r'C:\Users\Administrator\AppData\Local\Google\Chrome\User Data')
-    # 获取特征链接
-    feature_links = await get_feature_links(url, browser)
-    # 关闭浏览器
-    await browser.close()
-    # 将链接写入文件
-    with open('links.txt', 'w', encoding='utf-8') as file:
-        for link in feature_links:
-            file.write(link + '\n')
-    print('over over!!!')
+    async with async_playwright() as p:
+        user_data_dir = r'C:\Users\Administrator\AppData\Local\Google\Chrome\User Data'  # 修改为你的路径
+        browser = await p.chromium.launch_persistent_context(user_data_dir, headless=False)
+        feature_links = await get_feature_links(url, browser)
 
-# 调用main函数
+        await browser.close()
+
+        with open('links.txt', 'w', encoding='utf-8') as file:
+            for link in feature_links:
+                file.write(link + '\n')
+
+        print('over over!!!')
+
 start_url = input('输入sharepoint地址:')
 start_url = start_url + '/_layouts/15/storman.aspx?root=Documents'
-asyncio.get_event_loop().run_until_complete(main(start_url))
+asyncio.run(main(start_url))

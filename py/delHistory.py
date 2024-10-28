@@ -1,4 +1,5 @@
 import asyncio
+import time
 from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -25,6 +26,7 @@ async def open_link_and_trigger_delete(url, browser, index,total, counter):
 
     except Exception as e:
         print(f'发生错误：{e}')
+        time.sleep(5)
 
 
 async def main(file_path, user_data_dirs):
@@ -69,8 +71,7 @@ file_path = 'links.txt'
 # 每个浏览器实例的用户数据目录
 user_data_dirs = [
     r'C:\Users\Administrator\AppData\Local\Google\Chrome\User Data',
-    r'C:\Users\Administrator\AppData\Local\Google\Chrome\User Data1',
-    # 添加更多目录...
+    # r'C:\Users\Administrator\AppData\Local\Google\Chrome\User Data1',
 ]
 
 # 运行主函数
