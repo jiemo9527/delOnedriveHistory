@@ -65,8 +65,8 @@ async def main(url):
     except Exception as e:
         print(f"发生错误: {e}")
 
-start_url = input('输入sharepoint地址:')
-start_url = start_url + '/personal/jiemo_todesign_cn/_layouts/15/storman.aspx?root=Documents'
+# start_url = input('输入sharepoint地址:')
+start_url = 'https://brecenmoqi-my.sharepoint.com' + '/personal/jiemo_todesign_cn/_layouts/15/storman.aspx?root=Documents'
 asyncio.run(main(start_url))
 
 # start_url = start_url + '/_layouts/15/storman.aspx?root=Documents'
