@@ -11,7 +11,7 @@ extensions_to_filter = {
     'json', 'JSON', 'ini', 'INI', 'js', 'JS', 'ass', 'ASS',
     'srt', 'SRT', 'ssa', 'SSA', 'ttf', 'TTF', 'sfv', 'SFV',
     'sup', 'SUP', 'svg', 'SVG', 'doc', 'DOC', 'webvtt', 'WEBVTT',
-    'md', 'MD', 'Atmos'
+    'md', 'MD', 'Atmos','xml'
 }
 
 # 过滤掉以指定扩展名结尾的行（支持大小写）
